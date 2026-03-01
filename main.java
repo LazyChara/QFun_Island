@@ -102,7 +102,6 @@ void onShowIsland(int chatType, String peerUin, String name) {
 
         int[] islandState = new int[]{0}; 
         float[] currentSize = new float[]{collapsedWidth, collapsedHeight};
-        long[] mHits = new long[3];
 
         Runnable triggerAnimation = new Runnable() {
             public void run() {
@@ -182,20 +181,6 @@ void onShowIsland(int chatType, String peerUin, String name) {
         };
 
         island.setOnClickListener(v -> {
-            System.arraycopy(mHits, 1, mHits, 0, mHits.length - 1);
-            mHits[mHits.length - 1] = SystemClock.uptimeMillis();
-            
-            if (mHits[0] >= (SystemClock.uptimeMillis() - 600)) {
-                globalAnimId[0]++;
-                if (dynamicIsland != null && dynamicIsland.getParent() != null) {
-                    ((ViewGroup) dynamicIsland.getParent()).removeView(dynamicIsland);
-                }
-                View old = rootDecorView.findViewWithTag("QFun_Island");
-                if (old != null) rootDecorView.removeView(old);
-                dynamicIsland = null;
-                return;
-            }
-
             if (islandState[0] == 2) {
                 islandState[0] = 0;
             } else {
