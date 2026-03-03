@@ -33,7 +33,7 @@ Runnable[] notifyPmRunnable = new Runnable[]{null};
 
 addItem("岛！", "onShowIsland");
 addItem("不岛了不岛了我错了😭", "onCloseIsland");
-addItem("切开关莫奈取色", "onToggleMonet");
+addItem("开关莫奈取色", "onToggleMonet");
 addItem("调整停靠位置", "onAdjustY");
 
 void onAdjustY(int chatType, String peerUin, String name) {
